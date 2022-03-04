@@ -10,7 +10,9 @@ Created on Thu Mar  3 22:53:23 2022
 
 import numpy as np
 from scipy.io.wavfile import write
-from ..Utilities import sinSqEnv
+import sys
+sys.path.append('..')
+from Utilities.sinSqEnv import sinSqEnv
 
 samplingRate = 44100
 fileLength = 5
@@ -21,10 +23,9 @@ freq = 100
 amp = 100
 y = amp*np.sin(2*np.pi*freq*x/samplingRate)
 for m in range(32):
-    freq = freq*1.618034
+    freq = freq+freq*0.6
     amp = amp*0.618034
     y = y + amp*np.sin(2*np.pi*freq*x/samplingRate)
-
 
 tStart = 0.1
 tReach = 1
