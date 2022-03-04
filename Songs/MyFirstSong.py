@@ -1,8 +1,16 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Mar  3 22:53:23 2022
+
+@author: ethanque
+"""
+
 
 
 import numpy as np
 from scipy.io.wavfile import write
-from Utilities import sinSqEnv
+from ..Utilities import sinSqEnv
 
 samplingRate = 44100
 fileLength = 5
@@ -26,4 +34,4 @@ tFirstSample = 0
 y = np.multiply(y, sinSqEnv(tStart,tReach,tFade,tGone,tFirstSample,numSamples,samplingRate))
 
 scaled = np.int16(y/np.max(np.abs(y)) * 32767)
-write('Data/test.wav', 44100, scaled)
+write('../Data/test.wav', 44100, scaled)
