@@ -1,2 +1,2 @@
 # WaveWorld
-Fun with waves.
+Fun generative sound and art projects.
